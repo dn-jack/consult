@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/axis.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/axis-ant.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/baidu-api-sdk-java.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/cglib-nodep-2.2.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-pool-1.5.4.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/fastjson-1.1.33.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jgroups-all.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jsoup-1.7.2.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/junit-4.8.2.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/micro-rsa.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/ojdbc.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/oscache-2.4.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/proxool-0.9.1.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/proxool-cglib.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/shunfeng.0829.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-aop-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-aspects-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-beans-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-build-src-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-context-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-context-support-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-core-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-expression-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-framework-bom-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-instrument-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-instrument-tomcat-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-jdbc-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-jms-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-orm-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-oxm-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-struts-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-test-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-tx-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-webmvc-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-webmvc-portlet-3.2.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/luoyang/.m2/MavenJar/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/luoyang/.m2/repository/org/aspectj/aspectjrt/1.7.1/aspectjrt-1.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/luoyang/.m2/repository/org/aspectj/aspectjweaver/1.7.1/aspectjweaver-1.7.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_79">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.35-bin.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4jdbc4-1.2.1.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/freemarker-2.3.13.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/c3p0-0.9.1.2.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/commons-dbutils-1.5.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/mybatis-3.0.5.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/mybatis-spring-1.0.0.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/json-lib-2.1-jdk15.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/commons-lang-2.3.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/spring-web-4.0.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/jackson-core-asl-1.9.4.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/jackson-mapper-asl-1.9.4.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/httpcore-4.2.1.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/httpclient-4.3.2.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/poi-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/poi-ooxml-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/poi-examples-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/poi-excelant-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/poi-ooxml-schemas-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/poi-scratchpad-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="F:/douniu_workspace/consult/WebContent/WEB-INF/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

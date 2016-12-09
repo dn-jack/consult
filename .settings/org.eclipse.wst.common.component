@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="consult">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="ojdbc.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/ojdbc.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mail.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/mail.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-framework-bom-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-framework-bom-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-tx-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javassist-3.9.0.GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/javassist-3.9.0.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aspects-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-aspects-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-build-src-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-build-src-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-discovery-0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-discovery-0.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="junit-4.8.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/junit-4.8.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.5.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/slf4j-api-1.5.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang-2.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-lang-2.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-beans-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="axis.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/axis.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-io-2.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-io-2.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-dbcp-1.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-dbcp-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-instrument-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-instrument-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-test-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-test-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activation.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/activation.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="fastjson-1.1.33.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/fastjson-1.1.33.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.15.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/log4j-1.2.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jstl.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jstl.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-jpa-2.0-api-1.0.0.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="micro-rsa.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/micro-rsa.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jaxrpc.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jaxrpc.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/dom4j-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-webmvc-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cglib-nodep-2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/cglib-nodep-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="proxool-cglib.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/proxool-cglib.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="proxool-0.9.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/proxool-0.9.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-1.8.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-beanutils-1.8.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpcore-4.2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/httpcore-4.2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-context-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-support-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-context-support-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/hibernate3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-jdbc-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpclient-4.2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/httpclient-4.2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-core-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jgroups-all.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jgroups-all.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="baidu-api-sdk-java.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/baidu-api-sdk-java.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-oxm-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-oxm-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-5.1.12-bin.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/mysql-connector-java-5.1.12-bin.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jta-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jta-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="json-simple-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/json-simple-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-collections-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="standard.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/standard.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="aopalliance.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/aopalliance.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-portlet-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-webmvc-portlet-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="axis-ant.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/axis-ant.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="shunfeng.0829.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/shunfeng.0829.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="wsdl4j-1.5.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/wsdl4j-1.5.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-fileupload-1.2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-aop-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-orm-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-orm-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jms-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-jms-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="saaj.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/saaj.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-pool-1.5.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-pool-1.5.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/commons-logging-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-struts-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-struts-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-instrument-tomcat-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-instrument-tomcat-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-log4j12-1.5.8.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/slf4j-log4j12-1.5.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-2.7.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/antlr-2.7.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-expression-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-3.2.9.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/spring-web-3.2.9.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsoup-1.7.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/jsoup-1.7.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oscache-2.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/F:/wt_hn_workspace/netoffice_v2.0.4/WebContent/WEB-INF/lib/oscache-2.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/consult/build/classes"/>
+        <property name="context-root" value="consult"/>
+    </wb-module>
+</project-modules>
