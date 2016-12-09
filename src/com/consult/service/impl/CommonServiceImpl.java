@@ -990,9 +990,11 @@ public class CommonServiceImpl implements CommonService {
 			}
 
 			Integer index = null;
+			String activeTime = null;
 			for (ConsultRecord record : records) {
 				if (psptId.equals(record.getPsptId())) {
 					index = records.indexOf(record);
+					activeTime = record.getActiveTime();
 					break;
 				}
 			}
@@ -1003,6 +1005,7 @@ public class CommonServiceImpl implements CommonService {
 
 			JSONObject reJo = returnJo("0000", "生成排序成功！");
 			reJo.put("index", index);
+			reJo.put("activeTime", activeTime);
 			return reJo.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
