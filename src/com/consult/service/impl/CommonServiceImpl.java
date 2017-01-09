@@ -758,6 +758,9 @@ public class CommonServiceImpl implements CommonService {
 				if(user.get("SEX").equals("0") && (con.getItemIndex() == 10)) {
 					continue;
 				}
+				if(user.get("SEX").equals("0") && (con.getItemIndex() == 11)) {
+					con.setItemIndex(10);
+				}
 				map.put("index", con.getItemIndex());
 				map.put("content", con.getContent());
 				list2.add(map);
