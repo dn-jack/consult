@@ -819,6 +819,17 @@ public class CommonServiceImpl implements CommonService {
 		list3.add(map);
 		
 		dataMap.put("table3", list3);
+		dataMap.put("image3", getImageStr(records.get(0).getAutograph()));
+		
+		JSONObject lineupJo = new JSONObject();
+		lineupJo.put("psptId", user.get("PSPTID"));
+		String lineUpRe = createLineUp(lineupJo.toString());
+		JSONObject re = JSONObject.fromObject(lineUpRe);
+		if(re.getString("respCode") == "0000") {
+			dataMap.put("orderindex", re.getString("index"));
+		} else {
+			dataMap.put("orderindex", "11");
+		}
 		
 		return dataMap;
 	}
