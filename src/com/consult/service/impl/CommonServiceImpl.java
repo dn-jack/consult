@@ -825,7 +825,7 @@ public class CommonServiceImpl implements CommonService {
 		lineupJo.put("psptId", user.get("PSPTID"));
 		String lineUpRe = createLineUp(lineupJo.toString());
 		JSONObject re = JSONObject.fromObject(lineUpRe);
-		if(re.getString("respCode") == "0000") {
+		if(re.getString("respCode").equals("0000")) {
 			dataMap.put("orderindex", re.getString("index"));
 		} else {
 			dataMap.put("orderindex", "11");
