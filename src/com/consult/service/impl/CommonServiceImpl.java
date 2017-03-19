@@ -758,6 +758,9 @@ public class CommonServiceImpl implements CommonService {
 				if(user.get("SEX").equals("0") && (con.getItemIndex() == 10)) {
 					continue;
 				}
+				if(user.get("SEX").equals("0") && (con.getItemIndex() == 11)) {
+					con.setItemIndex(10);
+				}
 				map.put("index", con.getItemIndex());
 				map.put("content", con.getContent());
 				list2.add(map);
@@ -816,6 +819,17 @@ public class CommonServiceImpl implements CommonService {
 		list3.add(map);
 		
 		dataMap.put("table3", list3);
+		dataMap.put("image3", getImageStr(records.get(0).getAutograph()));
+		
+		JSONObject lineupJo = new JSONObject();
+		lineupJo.put("psptId", user.get("PSPTID"));
+		String lineUpRe = createLineUp(lineupJo.toString());
+		JSONObject re = JSONObject.fromObject(lineUpRe);
+		if(re.getString("respCode").equals("0000")) {
+			dataMap.put("orderindex", Integer.parseInt(re.getString("index")) + 1);
+		} else {
+			dataMap.put("orderindex", "11");
+		}
 		
 		return dataMap;
 	}
