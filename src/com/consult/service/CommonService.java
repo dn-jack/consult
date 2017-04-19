@@ -31,5 +31,11 @@ public interface CommonService {
 	
 	public String createLineUp(String param) throws Exception;
 	
+	public String doctorQueryUser(String param) throws Exception;
+	
+	public String printAllYear(String param, HttpServletRequest request) throws Exception;
+	
+	public String doctorConfirm(String param) throws Exception;
+	
 	public String saveConstract(List<Map<String, String>> param) throws Exception;
 }

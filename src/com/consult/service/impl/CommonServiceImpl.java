@@ -158,6 +158,41 @@ public class CommonServiceImpl implements CommonService {
 			return returnJo("9999", e.getMessage()).toString();
 		}
 	}
+	
+	//出生日期字符串转化成Date对象  
+    public  Date parse(String strDate) throws ParseException {  
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+        return sdf.parse(strDate);  
+    }  
+  
+    //由出生日期获得年龄  
+    public  int getAge(Date birthDay) throws Exception {  
+        Calendar cal = Calendar.getInstance();  
+  
+        if (cal.before(birthDay)) {  
+            throw new IllegalArgumentException(  
+                    "The birthDay is before Now.It's unbelievable!");  
+        }  
+        int yearNow = cal.get(Calendar.YEAR);  
+        int monthNow = cal.get(Calendar.MONTH);  
+        int dayOfMonthNow = cal.get(Calendar.DAY_OF_MONTH);  
+        cal.setTime(birthDay);  
+  
+        int yearBirth = cal.get(Calendar.YEAR);  
+        int monthBirth = cal.get(Calendar.MONTH);  
+        int dayOfMonthBirth = cal.get(Calendar.DAY_OF_MONTH);  
+  
+        int age = yearNow - yearBirth;  
+  
+        if (monthNow <= monthBirth) {  
+            if (monthNow == monthBirth) {  
+                if (dayOfMonthNow < dayOfMonthBirth) age--;  
+            }else{  
+                age--;  
+            }  
+        }  
+        return age;  
+    }
 
 	public String checkIdCard(String param) throws Exception {
 
@@ -230,6 +265,17 @@ public class CommonServiceImpl implements CommonService {
 			logger.info(area);
 			logger.info("不在合法征询区域内！");
 			return returnJo("9999", "不在合法征询区域内！").toString();
+		}
+		
+		int age = this.getAge(this.parse(psptId.substring(6, 10) + "-"
+					+ psptId.substring(10, 12) + "-" + psptId.substring(12, 14)));
+		
+		logger.info("-------------------->该浆员的征询年龄为:" + age);
+		
+		if(age < 18 || age > 55) {
+			logger.info(age);
+			logger.info("年龄 = " + age + "岁，您的年龄不在合法的征询年龄内，合法征询年龄为18-55岁");
+			return returnJo("9999", "您的年龄不在合法征询年龄内，合法征询年龄为18-55周岁！").toString();
 		}
 
 		// 2����Ա�ϴ���ѯ����14����ǰ
@@ -468,7 +514,7 @@ public class CommonServiceImpl implements CommonService {
 					List<String> fileNames = new ArrayList<String>();
 					for (ConsultRecordCount count : canPrint) {
 						String fileName = printAndUpdate(count.getPsptId(),
-								request, null, "0");
+								request, null, "0",false);
 						if (JsonUtil.isJson(fileName)
 								&& "9999".equals(JSONObject
 										.fromObject(fileName).getString(
@@ -529,7 +575,7 @@ public class CommonServiceImpl implements CommonService {
 				JSONArray recordsJa = paramJo.getJSONArray("records");
 
 				String fileName = printAndUpdate(psptId, request, recordsJa,
-						"1");
+						"1",false);
 
 				if (JsonUtil.isJson(fileName)
 						&& "9999".equals(JSONObject.fromObject(fileName)
@@ -614,7 +660,7 @@ public class CommonServiceImpl implements CommonService {
 
 	@SuppressWarnings("all")
 	private String printAndUpdate(String psptId, HttpServletRequest request,
-			JSONArray ja, String operType) throws Exception {
+			JSONArray ja, String operType,boolean isPrintAll) throws Exception {
 		Map<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("psptId", psptId);
 		List<Map> users = this.queryUserInfo(paramMap);
@@ -622,7 +668,7 @@ public class CommonServiceImpl implements CommonService {
 			logger.info("根据身份证号码查询不到该浆员信息！");
 			return returnJo("9999", "根据身份证号码查询不到该浆员信息！").toString();
 		}
-		Map dataMap = this.gudingDataMap(users.get(0), ja);
+		Map dataMap = this.gudingDataMap(users.get(0), ja,isPrintAll);
 
 		if (dataMap == null) {
 			return returnJo("9999", "生成文档失败！").toString();
@@ -799,18 +845,24 @@ public class CommonServiceImpl implements CommonService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("activeTime", records.get(0).getActiveTime());
 
-		if (records.get(0).getIspass().equals("TYGJ")) {
-			map.put("agree", "同意");
+		if(records.get(0).getIspass() != null) {
+			if (records.get(0).getIspass().equals("TYGJ")) {
+				map.put("agree", "同意");
+				map.put("temporary", "");
+				map.put("permanent", "");
+			} else if (records.get(0).getIspass().equals("ZSJJ")) {
+				map.put("agree", "");
+				map.put("temporary", "暂时");
+				map.put("permanent", "");
+			} else if (records.get(0).getIspass().equals("YJJJ")) {
+				map.put("agree", "");
+				map.put("temporary", "");
+				map.put("permanent", "永久");
+			}
+		} else {
+			map.put("agree", "");
 			map.put("temporary", "");
 			map.put("permanent", "");
-		} else if (records.get(0).getIspass().equals("ZSJJ")) {
-			map.put("agree", "");
-			map.put("temporary", "暂时");
-			map.put("permanent", "");
-		} else if (records.get(0).getIspass().equals("YJJJ")) {
-			map.put("agree", "");
-			map.put("temporary", "");
-			map.put("permanent", "永久");
 		}
 
 		map.put("remark", records.get(0).getRemark());
@@ -834,7 +886,7 @@ public class CommonServiceImpl implements CommonService {
 		return dataMap;
 	}
 
-	private Map gudingDataMap(Map user, JSONArray ja) {
+	private Map gudingDataMap(Map user, JSONArray ja,boolean isPrintAll) throws Exception{
 
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		String sex = null;
@@ -901,6 +953,7 @@ public class CommonServiceImpl implements CommonService {
 		}
 
 		List<Map<String, Object>> list3 = new ArrayList<Map<String, Object>>();
+		if(!isPrintAll) {
 		if (records.size() > 26) {
 			for (int i = 0; i < 26; i++) {
 				// for (ConsultRecord record : records) {
@@ -952,12 +1005,41 @@ public class CommonServiceImpl implements CommonService {
 				list3.add(map);
 			}
 		}
+		} else {
+			for (ConsultRecord record : records) {
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("activeTime", record.getActiveTime());
+
+				if (record.getIspass().equals("TYGJ")) {
+					map.put("agree", "同意");
+					map.put("temporary", "");
+					map.put("permanent", "");
+				} else if (record.getIspass().equals("ZSJJ")) {
+					map.put("agree", "");
+					map.put("temporary", "暂时");
+					map.put("permanent", "");
+				} else if (record.getIspass().equals("YJJJ")) {
+					map.put("agree", "");
+					map.put("temporary", "");
+					map.put("permanent", "永久");
+				}
+
+				map.put("remark", record.getRemark());
+				map.put("image1", getImageStr(record.getAutograph()));
+				map.put("image2", getImageStr(record.getDocautograph()));
+				list3.add(map);
+			}
+		}
 		dataMap.put("table3", list3);
 
 		Map rePa = new HashMap();
 		rePa.put("dataMap", records.size() == 0 ? null : dataMap);
+		if(!isPrintAll) {
 		if (records.size() > 26) {
 			rePa.put("records", records.subList(0, 26));
+		} else {
+			rePa.put("records", records);
+		}
 		} else {
 			rePa.put("records", records);
 		}
@@ -1102,4 +1184,221 @@ public class CommonServiceImpl implements CommonService {
 		return returnJo("0000", "succsess").toString();
 	}
 
+	public String doctorQueryUser(String param) throws Exception {
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Map paramMap = new HashMap();
+		paramMap.put("activeTime", df.format(new Date()));
+		paramMap.put("handState", "N");
+
+		List<ConsultRecord> records = mapper.queryRecordshaveH(paramMap);
+		
+		if(records.size() <= 0) {
+			logger.info("今天没有浆员的征询记录！");
+			return returnJo("9999","今天没有浆员的征询记录！").toString();
+		}
+		
+		//修改最早排队的征询记录为正在处理中的状态B
+		Map upateParam = new HashMap();
+		upateParam.put("handState", "B");
+		upateParam.put("id", records.get(0).getId());
+		if(mapper.updateConsultRecord(upateParam) <= 0 ) {
+			logger.info("cousult_record.hand_state更新失败！");
+			return returnJo("9999","cousult_record.hand_state更新失败！").toString();
+		}
+		
+		ConsultRecord record = records.get(0);
+		JSONObject consultRecord = JSONObject.fromObject(record);
+		
+		Map userParam = new HashMap();
+		userParam.put("psptId", record.getPsptId());
+		List<Map> users = mapper.queryUserByPsptId(userParam);
+		
+		JSONObject userInfo = new JSONObject();
+		userInfo.put("psptId", record.getPsptId());
+		userInfo.put("name", users.get(0).get("NAME"));
+		userInfo.put("birthday", users.get(0).get("BIRTHDAY1"));
+		userInfo.put("sex", users.get(0).get("SEX"));
+		userInfo.put("address", users.get(0).get("ADDRESS"));
+		userInfo.put("activeTime", users.get(0).get("ACTIVETIME1"));
+		userInfo.put("picture", users.get(0).get("PICTURE"));
+		userInfo.put("nation", users.get(0).get("NATION"));
+		
+		JSONObject retJo = returnJo("0000","成功！");
+		retJo.put("consultRecord", consultRecord);
+		retJo.put("userInfo", userInfo);
+		retJo.put("lineupCount", records.size() - 1);
+		
+		JSONObject lineupJo = new JSONObject();
+		lineupJo.put("psptId", record.getPsptId());
+		String lineUpRe = createLineUp(lineupJo.toString());
+		JSONObject re = JSONObject.fromObject(lineUpRe);
+		if(re.getString("respCode").equals("0000")) {
+			retJo.put("index", re.getString("index"));
+		} else {
+			retJo.put("index", "11");
+		}
+		
+		Map paramMap1 = new HashMap();
+		paramMap1.put("ids",
+				new String[] {record.getPsptId()});
+		List<ConsultContract> contracts = mapper.qryContracts(paramMap1);
+
+		if (contracts.size() > 0) {
+			retJo.put("archives", contracts.get(0).getContractCode());
+		} else {
+			retJo.put("archives", "");
+		}
+		
+		retJo.put("picture", record.getFingerprint());
+		
+		logger.info(retJo);
+		return retJo.toString();
+	}
+	
+	private List<String> repeat(List<ConsultRecord> records) {
+		
+		Map<String,Integer> repeatMap = new HashMap<String,Integer>();
+		
+		for(ConsultRecord record : records) {
+			if(!repeatMap.containsKey(record.getPsptId())) {
+				repeatMap.put(record.getPsptId(), 1);
+			} else {
+				repeatMap.put(record.getPsptId(), repeatMap.get(record.getPsptId()) + 1);
+			}
+		}
+		
+		List<String> keys = new ArrayList<String>();
+		for(String key : repeatMap.keySet()) {
+			keys.add(key);
+		}
+		
+		return keys;
+	}
+
+	public String printAllYear(String param, HttpServletRequest request) throws Exception {
+		
+		Map paramMap = new HashMap();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar a = Calendar.getInstance();
+		paramMap.put("activeTime", a.get(Calendar.YEAR) + "-01" + "-01");
+		paramMap.put("printFlag", "N");
+		List<ConsultRecord> records = mapper.queryRecords(paramMap);
+		
+		if(records.size() <= 0 ) {
+			return returnJo("9999", "本年没有浆员的征询记录！").toString();
+		}
+		
+		List<String> psptIds = repeat(records);
+		
+		
+		List<String> subpsptIds = psptIds.size() >= 10 ? psptIds.subList(0, 9) : psptIds;
+		
+		List<String> wordAddrList = new ArrayList<String>();
+		
+		for(String psptId : subpsptIds) {
+			String fileName = printAndUpdate(psptId,
+					request, null, "0",true);
+//			String psptId = record.getPsptId();
+//			Map<String, String> paramMap1 = new HashMap<String, String>();
+//			paramMap1.put("psptId", psptId);
+//			List<Map> users = this.queryUserInfo(paramMap1);
+//			if (users.size() <= 0) {
+//				logger.info("根据身份证号码查询不到该浆员信息！");
+//				return returnJo("9999", "根据身份证号码查询不到该浆员信息！").toString();
+//			}
+//			Map dataMap = newOldDataMap(users.get(0));
+//			if (dataMap == null) {
+//				logger.info("生成文档失败");
+//				return returnJo("9999", "生成文档失败！").toString();
+//			}
+//	
+//			File newoldWordpath = new File("D:" + File.separator + "static");
+//			if (!newoldWordpath.exists()) {
+//				newoldWordpath.mkdir();
+//			}
+//			File xinlaopath = new File(newoldWordpath.getAbsoluteFile()
+//					+ File.separator + "word");
+//			if (!xinlaopath.exists()) {
+//				xinlaopath.mkdir();
+//			}
+//			File xinlaopath1 = new File(xinlaopath.getAbsoluteFile()
+//					+ File.separator + "xinlao");
+//			if (!xinlaopath1.exists()) {
+//				xinlaopath1.mkdir();
+//			}
+//			String wordName = "固定供血浆者采浆前健康征询表-身份证(" + psptId + ")"
+//					+ "时间(" + new Date().getTime() + ")" + ".doc";
+//			String fileName = xinlaopath1.getAbsolutePath() + File.separator
+//					+ wordName;
+//			docHandler.createDoc(dataMap, fileName, "1");
+//	
+//			logger.info("生成word成功！");
+//			logger.info("wordAddr:" + request.getScheme() + "://"
+//					+ request.getServerName() + ":" + request.getServerPort()
+//					+ request.getContextPath() + "/word/xinlao/" + wordName);
+//			wordAddrList.add(request.getScheme() + "://" + request.getServerName() + ":"
+//							+ request.getServerPort()
+//							+ request.getContextPath() + "/word/xinlao/"
+//							+ wordName);
+			logger.info(request.getScheme() + "://"
+					+ request.getServerName() + ":"
+					+ request.getServerPort()
+					+ request.getContextPath() + "/"
+					+ "word/guding/" + fileName);
+			wordAddrList.add(request.getScheme() + "://"
+					+ request.getServerName() + ":"
+					+ request.getServerPort()
+					+ request.getContextPath() + "/"
+					+ "word/guding/" + fileName);
+		}
+		
+		//征询记录更新成Y
+		Map pM = new HashMap();
+		pM.put("ids", subpsptIds.toArray());
+		int count = mapper.updateRecordsByPsptId(pM);
+		if (count <= 0) {
+			logger.info("records更新失败！");
+			return returnJo("9999", "records更新失败！").toString();
+		}
+		JSONObject reJo = returnJo("0000", "生成word成功！");
+		reJo.put("wordAddr", wordAddrList);
+		reJo.put("isContinue", psptIds.size() > 10 ? "Y" : "N");
+		logger.info(reJo);
+		return reJo.toString();
+	}
+	
+	public String doctorConfirm(String param) throws Exception {
+		
+		if(JsonUtil.isBlank(param)) {
+			return returnJo("9999","param不能为空！").toString();
+		}
+		JSONObject paramJo = JSONObject.fromObject(param);
+		if(!paramJo.containsKey("id") || JsonUtil.isBlank(paramJo.get("id"))) {
+			return returnJo("9999","param.id不能为空！").toString();
+		}
+		if(!paramJo.containsKey("ispass") || JsonUtil.isBlank(paramJo.get("ispass"))) {
+			return returnJo("9999","param.ispass不能为空！").toString();
+		}
+		if(!paramJo.containsKey("docautograph") || JsonUtil.isBlank(paramJo.get("docautograph"))) {
+			return returnJo("9999","param.docautograph不能为空！").toString();
+		}
+		
+		Map paramMap = new HashMap();
+		paramMap.put("ispass", paramJo.getString("ispass"));
+		paramMap.put("docautograph", paramJo.getString("docautograph"));
+		paramMap.put("id", paramJo.getString("id"));
+		//把hand_state状态改为C，已处理完成
+		paramMap.put("handState", "C");
+		if(mapper.updateConsultRecord(paramMap) <= 0) {
+			return returnJo("9999","ConsultRecord更新失败，医生确认失败！").toString();
+		}
+		
+		return returnJo("0000","成功！").toString();
+	}
+
+	public static void main(String[] args) {
+		Calendar a = Calendar.getInstance();
+		System.out.print(a.get(Calendar.YEAR));
+	}
 }

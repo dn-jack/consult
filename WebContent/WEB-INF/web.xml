@@ -80,12 +80,12 @@
     <url-pattern>/common/userAutograph</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>UserFingerprint</servlet-name>
+    <servlet-name>userFingerprint</servlet-name>
     <servlet-class>com.consult.action.UserFingerprint</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UserFingerprint</servlet-name>
+    <servlet-name>userFingerprint</servlet-name>
     <url-pattern>/common/userFingerprint</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -98,21 +98,21 @@
     <url-pattern>/common/doctorAutograph</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>UploadIdPictrue</servlet-name>
+    <servlet-name>uploadIdPictrue</servlet-name>
     <servlet-class>com.consult.action.UploadIdPictrue</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UploadIdPictrue</servlet-name>
+    <servlet-name>uploadIdPictrue</servlet-name>
     <url-pattern>/common/idpictrue</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>UploadAutoPictrue</servlet-name>
+    <servlet-name>uploadAutoPictrue</servlet-name>
     <servlet-class>com.consult.action.UploadAutoPictrue</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UploadAutoPictrue</servlet-name>
+    <servlet-name>uploadAutoPictrue</servlet-name>
     <url-pattern>/common/autopictrue</url-pattern>
   </servlet-mapping>
   <servlet>

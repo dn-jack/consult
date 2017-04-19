@@ -43,6 +43,22 @@
 		<result column="STATE" property="state"/>
 	</resultMap>
 	
+	<update id="updateConsultRecord"  parameterType="java.util.Map">
+		update consult_record 
+		<set>
+			<if test="handState != null and handState != ''" >
+				hand_state = #{handState,jdbcType=VARCHAR},
+			</if>
+			<if test="ispass != null and ispass != ''" >
+				ISPASS = #{ispass,jdbcType=VARCHAR},
+			</if>
+			<if test="docautograph != null and docautograph != ''" >
+				DOCAUTOGRAPH = #{docautograph,jdbcType=VARCHAR}
+			</if>
+		</set> 
+		where id = #{id}
+	</update>
+	
 	<update id="updateRecordCount"  parameterType="java.util.Map">
 		update consult_recordcount 
 		<set>
@@ -82,6 +98,17 @@
 		</foreach>
 		 
 	</update>
+	
+	<update id="updateRecordsByPsptId"  parameterType="java.util.Map">
+	 
+				update consult_record set
+				  PRINT_FLAG='Y'
+				where psptId in
+		<foreach item="item" index="index" collection="ids" open="(" separator="," close=")">
+				#{item}
+		</foreach>
+		 
+	</update>
     
 	<select id="qryContracts" parameterType="java.util.Map" resultMap="ContractResultMap"> 
     	select * from consult_contract where psptId in
@@ -103,7 +130,7 @@
 	</select>
   
 	<select id="queryUserByPsptId" parameterType="java.util.Map" resultType="java.util.Map">
-  	select * from consult_idcardinfo where psptId = #{psptId,jdbcType=VARCHAR}
+  	select *,date_format(birthday,'%Y-%m-%d') birthday1,date_format(activeTime,'%Y-%m-%d') activeTime1 from consult_idcardinfo where psptId = #{psptId,jdbcType=VARCHAR}
 	</select>
 	
 	<select id="queryRecordCount" parameterType="java.util.Map" resultMap="CountResultMap">
@@ -147,6 +174,9 @@
 			<if test="activeTime != null and activeTime != ''" >
   	 		and ACTIVETIME >= str_to_date(#{activeTime,jdbcType=VARCHAR},'%Y-%m-%d')
 			</if>
+			<if test="printFlag != null and printFlag != ''" >
+				and PRINT_FLAG = #{printFlag,jdbcType=VARCHAR}
+			</if>
 		</trim>
   	 order by ACTIVETIME desc  
 		<if test="beginPage != null and beginPage != '' or beginPage==0">
@@ -175,6 +205,9 @@
 			</if>
 			<if test="activeTime != null and activeTime != ''" >
   	 		and ACTIVETIME >= str_to_date(#{activeTime,jdbcType=VARCHAR},'%Y-%m-%d')
+			</if>
+			<if test="handState != null and handState != ''" >
+  	 		and hand_state = #{handState,jdbcType=VARCHAR}
 			</if>
 		</trim>
   	 order by ACTIVETIME  
@@ -238,9 +271,22 @@
   
 	<insert id="saveRecord" parameterType="com.consult.bean.ConsultRecord">
   	
-	insert into consult_record(PSPTID,ACTIVETIME,AUTOGRAPH,ISPASS,DOCAUTOGRAPH,FINGERPRINT,REMARK,PRINT_FLAG)
-		values (#{psptId,jdbcType=VARCHAR},str_to_date(#{activeTime,jdbcType=VARCHAR},'%Y-%m-%d %T'),#{autograph,jdbcType=VARCHAR}
-		,#{ispass,jdbcType=VARCHAR},#{docautograph,jdbcType=VARCHAR},#{fingerprint,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{printFlag,jdbcType=VARCHAR})
+	insert into consult_record(PSPTID,ACTIVETIME,AUTOGRAPH,
+	<if test="ispass != null and ispass != ''">
+	ISPASS,
+	</if>
+	<if test="docautograph != null and docautograph != ''">
+	DOCAUTOGRAPH,
+	</if>
+	FINGERPRINT,REMARK,PRINT_FLAG)
+		values (#{psptId,jdbcType=VARCHAR},str_to_date(#{activeTime,jdbcType=VARCHAR},'%Y-%m-%d %T'),#{autograph,jdbcType=VARCHAR},
+		<if test="ispass != null and ispass != ''">
+		#{ispass,jdbcType=VARCHAR},
+		</if>
+		<if test="docautograph != null and docautograph != ''">
+		#{docautograph,jdbcType=VARCHAR},
+		</if>
+		#{fingerprint,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{printFlag,jdbcType=VARCHAR})
 	</insert>
 	
 	<insert id="saveRecordCount" parameterType="com.consult.bean.ConsultRecordCount">

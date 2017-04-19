@@ -50,8 +50,11 @@
 		<property name="initialPoolSize" value="10" />
 		<property name="idleConnectionTestPeriod" value="60" /> 
 		<property name="acquireRetryAttempts" value="30" />
-		<property name="breakAfterAcquireFailure" value="true" />
+		<property name="breakAfterAcquireFailure" value="false" />
 		<property name="testConnectionOnCheckout" value="false" />
+		<property name="acquireRetryDelay"><value>100</value></property>  
+
+  
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

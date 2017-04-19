@@ -43,6 +43,8 @@ public interface CommonMapper {
 	
 	int updateRecords(Map param);
 	
+	int updateRecordsByPsptId(Map param);
+	
 	List<ConsultRecordCount> queryRecordCount(Map param);
 	
 	int updateRecordCount(Map param);
@@ -52,4 +54,6 @@ public interface CommonMapper {
 	List<ConsultContract> qryContracts(Map param);
 	
 	int saveContracts(List<ConsultContract> contracts);
+	
+	int updateConsultRecord(Map param);
 }

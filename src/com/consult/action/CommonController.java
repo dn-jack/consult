@@ -308,6 +308,49 @@ public class CommonController {
 			return returnJo("9999", e.getMessage()).toString();
 		}
 	}
+	
+	@RequestMapping(value = "/doctorQueryUser", method = { RequestMethod.POST,
+			RequestMethod.GET }, produces = "application/json;charset=utf-8")
+	public @ResponseBody String doctorQueryUser(HttpServletRequest request,
+			HttpServletResponse response, @RequestBody String param) {
+		logger.info("methodName : doctorQueryUser");
+		try {
+			return service.doctorQueryUser(param);
+		}catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			return returnJo("9999", e.getMessage()).toString();
+		}
+	}
+	
+	@RequestMapping(value = "/printAllYear", method = { RequestMethod.POST,
+			RequestMethod.GET }, produces = "application/json;charset=utf-8")
+	public @ResponseBody String printAllYear(HttpServletRequest request,
+			HttpServletResponse response, @RequestBody String param) {
+		logger.info("methodName : printAllYear");
+		try {
+			return service.printAllYear(param,request);
+		}catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			return returnJo("9999", e.getMessage()).toString();
+		}
+	}
+	
+	@RequestMapping(value = "/doctorConfirm", method = { RequestMethod.POST,
+			RequestMethod.GET }, produces = "application/json;charset=utf-8")
+	public @ResponseBody String doctorConfirm(HttpServletRequest request,
+			HttpServletResponse response, @RequestBody String param) {
+		logger.info("methodName : doctorConfirm");
+		try {
+			return service.doctorConfirm(param);
+		}catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			return returnJo("9999", e.getMessage()).toString();
+		}
+	}
+		
 
 	@RequestMapping(value = "/createLineUp", method = { RequestMethod.POST,
 			RequestMethod.GET }, produces = "application/json;charset=utf-8")
