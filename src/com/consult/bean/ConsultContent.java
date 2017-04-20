@@ -11,7 +11,17 @@ public class ConsultContent {
 	public String type;
 	
 	public Integer state;
+	
+	public String areaCode;
 
+
+	public String getAreaCode() {
+		return areaCode;
+	}
+
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
+	}
 
 	public Integer getItemIndex() {
 		return itemIndex;

@@ -801,11 +801,11 @@ public class CommonServiceImpl implements CommonService {
 				list1.add(map);
 			} else if (con.getType().equals("1")) {
 				Map<String, Object> map = new HashMap<String, Object>();
-				if(user.get("SEX").equals("0") && (con.getItemIndex() == 10)) {
+				if(user.get("SEX").equals("0") && (con.getItemIndex() == 2)) {
 					continue;
 				}
-				if(user.get("SEX").equals("0") && (con.getItemIndex() == 11)) {
-					con.setItemIndex(10);
+				if(user.get("SEX").equals("0")) {
+					con.setItemIndex(con.getItemIndex() - 1);
 				}
 				map.put("index", con.getItemIndex());
 				map.put("content", con.getContent());
@@ -850,20 +850,29 @@ public class CommonServiceImpl implements CommonService {
 				map.put("agree", "同意");
 				map.put("temporary", "");
 				map.put("permanent", "");
+				
+				map.put("recommand", "同意供浆");
 			} else if (records.get(0).getIspass().equals("ZSJJ")) {
 				map.put("agree", "");
 				map.put("temporary", "暂时");
 				map.put("permanent", "");
+				
+				map.put("recommand", "暂时拒绝");
 			} else if (records.get(0).getIspass().equals("YJJJ")) {
 				map.put("agree", "");
 				map.put("temporary", "");
 				map.put("permanent", "永久");
+				
+				map.put("recommand", "永久拒绝");
 			}
 		} else {
 			map.put("agree", "");
 			map.put("temporary", "");
 			map.put("permanent", "");
+			
+			map.put("recommand", "");
 		}
+		//recommand
 
 		map.put("remark", records.get(0).getRemark());
 		map.put("image3", getImageStr(records.get(0).getAutograph()));

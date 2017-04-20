@@ -21,6 +21,7 @@
 		<result column="CONTENT" property="content"/>
 		<result column="TYPE" property="type"/>
 		<result column="STATE" property="state"/>
+		<result column="AREACODE" property="areaCode"/>
 	</resultMap>
 	
 	<resultMap id="ContractResultMap" type="com.consult.bean.ConsultContract" >
@@ -146,6 +147,9 @@
   	select * from consult_content a where a.state = 0
 		<if test="type != null and type != ''" >
 				and a.type = #{type,jdbcType=VARCHAR}
+		</if>
+		<if test="areaCode != null and areaCode != ''" >
+				and a.AREACODE = #{areaCode,jdbcType=VARCHAR}
 		</if>
   	order by a.itemindex
 	</select>
