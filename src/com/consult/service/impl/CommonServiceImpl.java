@@ -867,7 +867,11 @@ public class CommonServiceImpl implements CommonService {
 
 		map.put("remark", records.get(0).getRemark());
 		map.put("image3", getImageStr(records.get(0).getAutograph()));
-		map.put("image4", getImageStr(records.get(0).getDocautograph()));
+		if(records.get(0).getDocautograph() != null) {
+			map.put("image4", getImageStr(records.get(0).getDocautograph()));
+		} else {
+			map.put("image4","");
+		}
 		list3.add(map);
 		
 		dataMap.put("table3", list3);
@@ -959,24 +963,33 @@ public class CommonServiceImpl implements CommonService {
 				// for (ConsultRecord record : records) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("activeTime", records.get(i).getActiveTime());
-
-				if (records.get(i).getIspass().equals("TYGJ")) {
-					map.put("agree", "同意");
+				if(records.get(i).getIspass() != null) {
+					if (records.get(i).getIspass().equals("TYGJ")) {
+						map.put("agree", "同意");
+						map.put("temporary", "");
+						map.put("permanent", "");
+					} else if (records.get(i).getIspass().equals("ZSJJ")) {
+						map.put("agree", "");
+						map.put("temporary", "暂时");
+						map.put("permanent", "");
+					} else if (records.get(i).getIspass().equals("YJJJ")) {
+						map.put("agree", "");
+						map.put("temporary", "");
+						map.put("permanent", "永久");
+					}
+				} else {
+					map.put("agree", "");
 					map.put("temporary", "");
 					map.put("permanent", "");
-				} else if (records.get(i).getIspass().equals("ZSJJ")) {
-					map.put("agree", "");
-					map.put("temporary", "暂时");
-					map.put("permanent", "");
-				} else if (records.get(i).getIspass().equals("YJJJ")) {
-					map.put("agree", "");
-					map.put("temporary", "");
-					map.put("permanent", "永久");
 				}
 
 				map.put("remark", records.get(i).getRemark());
 				map.put("image1", getImageStr(records.get(i).getAutograph()));
-				map.put("image2", getImageStr(records.get(i).getDocautograph()));
+				if(records.get(i).getDocautograph() != null) {
+					map.put("image2", getImageStr(records.get(i).getDocautograph()));
+				} else {
+					map.put("image2", "");
+				}
 				list3.add(map);
 				// }
 			}
@@ -984,24 +997,33 @@ public class CommonServiceImpl implements CommonService {
 			for (ConsultRecord record : records) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("activeTime", record.getActiveTime());
-
-				if (record.getIspass().equals("TYGJ")) {
-					map.put("agree", "同意");
+				if(record.getIspass() != null) {
+					if (record.getIspass().equals("TYGJ")) {
+						map.put("agree", "同意");
+						map.put("temporary", "");
+						map.put("permanent", "");
+					} else if (record.getIspass().equals("ZSJJ")) {
+						map.put("agree", "");
+						map.put("temporary", "暂时");
+						map.put("permanent", "");
+					} else if (record.getIspass().equals("YJJJ")) {
+						map.put("agree", "");
+						map.put("temporary", "");
+						map.put("permanent", "永久");
+					}
+				} else {
+					map.put("agree", "");
 					map.put("temporary", "");
 					map.put("permanent", "");
-				} else if (record.getIspass().equals("ZSJJ")) {
-					map.put("agree", "");
-					map.put("temporary", "暂时");
-					map.put("permanent", "");
-				} else if (record.getIspass().equals("YJJJ")) {
-					map.put("agree", "");
-					map.put("temporary", "");
-					map.put("permanent", "永久");
 				}
 
 				map.put("remark", record.getRemark());
 				map.put("image1", getImageStr(record.getAutograph()));
-				map.put("image2", getImageStr(record.getDocautograph()));
+				if(record.getDocautograph() != null) {
+					map.put("image2", getImageStr(record.getDocautograph()));
+				} else {
+					map.put("image2", "");
+				}
 				list3.add(map);
 			}
 		}
@@ -1009,24 +1031,33 @@ public class CommonServiceImpl implements CommonService {
 			for (ConsultRecord record : records) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("activeTime", record.getActiveTime());
-
-				if (record.getIspass().equals("TYGJ")) {
-					map.put("agree", "同意");
+				if(record.getIspass() != null) {
+					if (record.getIspass().equals("TYGJ")) {
+						map.put("agree", "同意");
+						map.put("temporary", "");
+						map.put("permanent", "");
+					} else if (record.getIspass().equals("ZSJJ")) {
+						map.put("agree", "");
+						map.put("temporary", "暂时");
+						map.put("permanent", "");
+					} else if (record.getIspass().equals("YJJJ")) {
+						map.put("agree", "");
+						map.put("temporary", "");
+						map.put("permanent", "永久");
+					}
+				} else {
+					map.put("agree", "");
 					map.put("temporary", "");
 					map.put("permanent", "");
-				} else if (record.getIspass().equals("ZSJJ")) {
-					map.put("agree", "");
-					map.put("temporary", "暂时");
-					map.put("permanent", "");
-				} else if (record.getIspass().equals("YJJJ")) {
-					map.put("agree", "");
-					map.put("temporary", "");
-					map.put("permanent", "永久");
 				}
 
 				map.put("remark", record.getRemark());
 				map.put("image1", getImageStr(record.getAutograph()));
-				map.put("image2", getImageStr(record.getDocautograph()));
+				if(record.getDocautograph() != null) {
+					map.put("image2", getImageStr(record.getDocautograph()));
+				} else {
+					map.put("image2", "");
+				}
 				list3.add(map);
 			}
 		}
