@@ -260,6 +260,10 @@ public class CommonServiceImpl implements CommonService {
 				}
 			}
 		}
+		
+		if(addr.contains("湖北")&&addr.contains("城关镇")) {
+			isarea = false;
+		}
 
 		if (!isarea) {
 			logger.info(area);
@@ -851,33 +855,35 @@ public class CommonServiceImpl implements CommonService {
 				map.put("temporary", "");
 				map.put("permanent", "");
 				
-				map.put("recommand", "同意供浆");
+//				map.put("recommand", "同意供浆");
 			} else if (records.get(0).getIspass().equals("ZSJJ")) {
 				map.put("agree", "");
 				map.put("temporary", "暂时");
 				map.put("permanent", "");
 				
-				map.put("recommand", "暂时拒绝");
+//				map.put("recommand", "暂时拒绝");
 			} else if (records.get(0).getIspass().equals("YJJJ")) {
 				map.put("agree", "");
 				map.put("temporary", "");
 				map.put("permanent", "永久");
 				
-				map.put("recommand", "永久拒绝");
+//				map.put("recommand", "永久拒绝");
 			}
 		} else {
 			map.put("agree", "");
 			map.put("temporary", "");
 			map.put("permanent", "");
 			
-			map.put("recommand", "");
+//			map.put("recommand", "");
 		}
+		map.put("recommand", "");
 		//recommand
 
 		map.put("remark", records.get(0).getRemark());
 		map.put("image3", getImageStr(records.get(0).getAutograph()));
 		if(records.get(0).getDocautograph() != null) {
-			map.put("image4", getImageStr(records.get(0).getDocautograph()));
+//			map.put("image4", getImageStr(records.get(0).getDocautograph()));
+			map.put("image4","");
 		} else {
 			map.put("image4","");
 		}
