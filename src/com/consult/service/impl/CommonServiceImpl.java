@@ -429,6 +429,7 @@ public class CommonServiceImpl implements CommonService {
 
 			paramMap.remove("beginPage");
 			paramMap.remove("pageSize");
+			paramMap.put("handState", "C");
 			List<ConsultRecord> records = mapper.queryRecords(paramMap);
 
 			Map<String, ConsultRecord> repeatMap = new HashMap<String, ConsultRecord>();
@@ -460,8 +461,10 @@ public class CommonServiceImpl implements CommonService {
 			}
 
 			JSONObject reJo = returnJo("0000", "成功");
+			Map paramMap2 = JSON.parseObject(param, Map.class);
+			paramMap2.put("handState", "C");
 			reJo.put("result",
-					mapper.queryRecords(JSON.parseObject(param, Map.class)));
+					mapper.queryRecords(paramMap2));
 			reJo.put("mode", 0);
 
 			// paramMap.remove("beginPage");
@@ -1083,6 +1086,10 @@ public class CommonServiceImpl implements CommonService {
 	}
 
 	private static String getImageStr(String path) {
+		
+		if(path == null || "".equals(path)) {
+			return "";
+		}
 
 		path = "D:/static/" + path.substring(path.indexOf("image"));
 
