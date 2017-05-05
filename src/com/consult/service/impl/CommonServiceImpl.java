@@ -433,6 +433,7 @@ public class CommonServiceImpl implements CommonService {
 
 			paramMap.remove("beginPage");
 			paramMap.remove("pageSize");
+			paramMap.put("handState", "C");
 			List<ConsultRecord> records = mapper.queryRecords(paramMap);
 
 			Map<String, ConsultRecord> repeatMap = new HashMap<String, ConsultRecord>();
@@ -464,8 +465,10 @@ public class CommonServiceImpl implements CommonService {
 			}
 
 			JSONObject reJo = returnJo("0000", "成功");
+			Map paramMap2 = JSON.parseObject(param, Map.class);
+			paramMap2.put("handState", "C");
 			reJo.put("result",
-					mapper.queryRecords(JSON.parseObject(param, Map.class)));
+					mapper.queryRecords(paramMap2));
 			reJo.put("mode", 0);
 
 			// paramMap.remove("beginPage");
@@ -644,7 +647,7 @@ public class CommonServiceImpl implements CommonService {
 					+ "时间(" + new Date().getTime() + ")" + ".doc";
 			String fileName = xinlaopath1.getAbsolutePath() + File.separator
 					+ wordName;
-			docHandler.createDoc(dataMap, fileName, "1");
+			docHandler.createDoc(dataMap, fileName, "1",users.get(0).get("SEX") != null ? users.get(0).get("SEX").toString() : "0");
 
 			logger.info("生成word成功！");
 			logger.info("wordAddr:" + request.getScheme() + "://"
@@ -702,7 +705,7 @@ public class CommonServiceImpl implements CommonService {
 		String fileName = gudingWordpathpath1.getAbsolutePath()
 				+ File.separator + wordName;
 
-		docHandler.createDoc((Map) dataMap.get("dataMap"), fileName, "0");
+		docHandler.createDoc((Map) dataMap.get("dataMap"), fileName, "0","0");
 
 		if ("1".equals(operType)) {
 			return wordName;
@@ -999,7 +1002,11 @@ public class CommonServiceImpl implements CommonService {
 				}
 
 				map.put("remark", records.get(i).getRemark());
-				map.put("image1", getImageStr(records.get(i).getAutograph()));
+				if(records.get(i).getAutograph() != null) {
+					map.put("image1", getImageStr(records.get(i).getAutograph()));
+				} else {
+					map.put("image1", "");
+				}
 				if(records.get(i).getDocautograph() != null) {
 					map.put("image2", getImageStr(records.get(i).getDocautograph()));
 				} else {
@@ -1033,7 +1040,11 @@ public class CommonServiceImpl implements CommonService {
 				}
 
 				map.put("remark", record.getRemark());
-				map.put("image1", getImageStr(record.getAutograph()));
+				if(record.getAutograph() != null) {
+					map.put("image1", getImageStr(record.getAutograph()));
+				} else {
+					map.put("image1", "");
+				}
 				if(record.getDocautograph() != null) {
 					map.put("image2", getImageStr(record.getDocautograph()));
 				} else {
@@ -1067,7 +1078,11 @@ public class CommonServiceImpl implements CommonService {
 				}
 
 				map.put("remark", record.getRemark());
-				map.put("image1", getImageStr(record.getAutograph()));
+				if(record.getAutograph() != null) {
+					map.put("image1", getImageStr(record.getAutograph()));
+				} else {
+					map.put("image1", "");
+				}
 				if(record.getDocautograph() != null) {
 					map.put("image2", getImageStr(record.getDocautograph()));
 				} else {
@@ -1099,6 +1114,9 @@ public class CommonServiceImpl implements CommonService {
 
 	private static String getImageStr(String path) {
 
+		if(path == null || "".equals(path)) {
+			return "";
+		}
 		path = "D:/static/" + path.substring(path.indexOf("image"));
 
 		InputStream in = null;
@@ -1329,6 +1347,7 @@ public class CommonServiceImpl implements CommonService {
 		Calendar a = Calendar.getInstance();
 		paramMap.put("activeTime", a.get(Calendar.YEAR) + "-01" + "-01");
 		paramMap.put("printFlag", "N");
+		paramMap.put("handState", "C");
 		List<ConsultRecord> records = mapper.queryRecords(paramMap);
 		
 		if(records.size() <= 0 ) {

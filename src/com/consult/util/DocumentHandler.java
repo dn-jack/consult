@@ -25,7 +25,7 @@ public class DocumentHandler {
 		configuration.setDefaultEncoding("utf-8");
 	}
 
-	public void createDoc(Map<String, Object> dataMap, String fileName,String wordType)
+	public void createDoc(Map<String, Object> dataMap, String fileName,String wordType,String sex)
 			throws UnsupportedEncodingException {
 		configuration.setClassForTemplateLoading(this.getClass(), "/template");
 		Template t = null;
@@ -34,7 +34,11 @@ public class DocumentHandler {
 			if("0".equals(wordType)) {
 				templateStr = "fctestpaper.ftl";
 			} else {
-				templateStr = "newOldWord.ftl";
+				if("0".equals(sex)) {
+					templateStr = "newOldWord0.ftl";
+				} else {
+					templateStr = "newOldWord1.ftl";
+				}
 			}
 			t = configuration.getTemplate(templateStr);
 		} catch (IOException e) {
