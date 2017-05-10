@@ -2,6 +2,7 @@ package com.consult.service.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -772,7 +774,7 @@ public class CommonServiceImpl implements CommonService {
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String date = df.format(new Date());
-		dataMap.put("recordNo", date);
+		dataMap.put("recordNo", getValue("recordNo"));
 		
 		
 
@@ -796,6 +798,7 @@ public class CommonServiceImpl implements CommonService {
 		}
 		List<Map<String, Object>> list1 = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> list2 = new ArrayList<Map<String, Object>>();
+		int index = 0;
 		for (ConsultContent con : contents) {
 			if (con.getType().equals("0")) {
 				Map<String, Object> map = new HashMap<String, Object>();
@@ -804,12 +807,19 @@ public class CommonServiceImpl implements CommonService {
 				list1.add(map);
 			} else if (con.getType().equals("1")) {
 				Map<String, Object> map = new HashMap<String, Object>();
-				if(user.get("SEX").equals("0") && (con.getItemIndex() == 10)) {
+				
+				String content = con.getContent();
+				if(user.get("SEX").equals("0") && content.contains("月经")) {
+					index = con.getItemIndex();
 					continue;
 				}
-				if(user.get("SEX").equals("0") && (con.getItemIndex() == 11)) {
-					con.setItemIndex(10);
+				
+				if(user.get("SEX").equals("0") && index != 0 && con.getItemIndex() > index) {
+					con.setItemIndex(con.getItemIndex() -1);
 				}
+//				if(user.get("SEX").equals("0") && (con.getItemIndex() == 11)) {
+//					con.setItemIndex(10);
+//				}
 				map.put("index", con.getItemIndex());
 				map.put("content", con.getContent());
 				list2.add(map);
@@ -853,19 +863,24 @@ public class CommonServiceImpl implements CommonService {
 				map.put("agree", "同意");
 				map.put("temporary", "");
 				map.put("permanent", "");
+				
+				map.put("recommand", "同意供浆");
 			} else if (records.get(0).getIspass().equals("ZSJJ")) {
 				map.put("agree", "");
 				map.put("temporary", "暂时");
 				map.put("permanent", "");
+				map.put("recommand", "暂时拒绝");
 			} else if (records.get(0).getIspass().equals("YJJJ")) {
 				map.put("agree", "");
 				map.put("temporary", "");
 				map.put("permanent", "永久");
+				map.put("recommand", "永久拒绝");
 			}
 		} else {
 			map.put("agree", "");
 			map.put("temporary", "");
 			map.put("permanent", "");
+			map.put("recommand", "");
 		}
 
 		map.put("remark", records.get(0).getRemark());
@@ -971,19 +986,25 @@ public class CommonServiceImpl implements CommonService {
 						map.put("agree", "同意");
 						map.put("temporary", "");
 						map.put("permanent", "");
+						
+						map.put("recommand", "同意供浆");
 					} else if (records.get(i).getIspass().equals("ZSJJ")) {
 						map.put("agree", "");
 						map.put("temporary", "暂时");
 						map.put("permanent", "");
+						
+						map.put("recommand", "暂时拒绝");
 					} else if (records.get(i).getIspass().equals("YJJJ")) {
 						map.put("agree", "");
 						map.put("temporary", "");
 						map.put("permanent", "永久");
+						map.put("recommand", "永久拒绝");
 					}
 				} else {
 					map.put("agree", "");
 					map.put("temporary", "");
 					map.put("permanent", "");
+					map.put("recommand", "");
 				}
 
 				map.put("remark", records.get(i).getRemark());
@@ -1434,9 +1455,38 @@ public class CommonServiceImpl implements CommonService {
 		
 		return returnJo("0000","成功！").toString();
 	}
+	
+	private String getValue(String name) {
+		Properties pro = new Properties();
+		try {
+			pro.load(CommonServiceImpl.class.getClassLoader().getResourceAsStream("config.properties"));
+			if(pro.containsKey(name)) {
+				return pro.getProperty(name);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public static void main(String[] args) {
-		Calendar a = Calendar.getInstance();
-		System.out.print(a.get(Calendar.YEAR));
+//		Calendar a = Calendar.getInstance();
+//		System.out.print(a.get(Calendar.YEAR));
+		Properties pro = new Properties();
+		FileInputStream in;
+		try {
+//			in = new FileInputStream(CommonServiceImpl.class.getClassLoader().getResourceAsStream("config.properties"));
+			pro.load(CommonServiceImpl.class.getClassLoader().getResourceAsStream("config.properties"));
+//			in.close();
+			System.out.print(pro.get("jdbc.url"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
