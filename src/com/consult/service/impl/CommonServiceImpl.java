@@ -350,6 +350,12 @@ public class CommonServiceImpl implements CommonService {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		record.setActiveTime(sdf.format(new Date()));
 		
+		if(JsonUtil.isNotBlank(record.getIspass()) && JsonUtil.isNotBlank(record.getDocautograph())) {
+			record.setHandState("C");
+		}else {
+			record.setHandState("N");
+		}
+		
 		if (JsonUtil.isBlank(record.getPrintFlag())) {
 			record.setPrintFlag("N");
 		}
@@ -1177,15 +1183,20 @@ public class CommonServiceImpl implements CommonService {
 
 		String isFlag = "1";
 		String name = "";
+		String picture = "";
 		if (users.size() <= 0) {
 			isFlag = "0";
 		} else {
 			name = String.valueOf(users.get(0).get("NAME"));
+			if(users.get(0).get("picture".toUpperCase()) != null) {
+				picture = String.valueOf(users.get(0).get("picture".toUpperCase()));
+			}
 		}
 
 		JSONObject reJo = returnJo("0000", "成功");
 		reJo.put("isFlag", isFlag);
 		reJo.put("name", name);
+		reJo.put("picture", picture);
 		return reJo.toString();
 	}
 
@@ -1216,11 +1227,22 @@ public class CommonServiceImpl implements CommonService {
 			}
 		}
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
 		if (removeList.size() > 0) {
 			param.removeAll(removeList);
+			
+			for(Map<String, String> map : removeList) {
+				ConsultContract contract = new ConsultContract();
+				contract.setActiveTime(sdf.format(new Date()));
+				contract.setState(0);
+				contract.setPsptId(map.get("psptId"));
+				contract.setContractCode(map.get("no"));
+				mapper.updateContract(contract);
+			}
 		}
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
 		List<ConsultContract> cons = new ArrayList<ConsultContract>();
 		for (Map<String, String> map : param) {
 			ConsultContract contract = new ConsultContract();

@@ -21,6 +21,16 @@ public class ConsultRecord {
 	public String printFlag;
 	
 	public String remark;
+	
+	public String handState;
+
+	public String getHandState() {
+		return handState;
+	}
+
+	public void setHandState(String handState) {
+		this.handState = handState;
+	}
 
 	public String getPsptId() {
 		return psptId;

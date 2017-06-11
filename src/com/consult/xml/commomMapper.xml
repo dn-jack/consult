@@ -109,6 +109,10 @@
 		</foreach>
 		 
 	</update>
+	
+	<update id="updateContract" parameterType="com.consult.bean.ConsultContract">
+		update consult_contract set contract_code = #{contractCode} where psptId = #{psptId}
+	</update>
     
 	<select id="qryContracts" parameterType="java.util.Map" resultMap="ContractResultMap"> 
     	select * from consult_contract where psptId in
@@ -152,7 +156,7 @@
   
 	<select id="queryConsultRecords" parameterType="java.util.Map" resultMap="RECORDResultMap">
   	select ID,PSPTID,date_format(ACTIVETIME,'%Y-%m-%d') ACTIVETIME,date_format(ACTIVETIME,'%Y-%m-%d %T') ACTIVETIME1,AUTOGRAPH,ISPASS,DOCAUTOGRAPH,FINGERPRINT,PRINT_FLAG,REMARK
-  	 from consult_record where PSPTID = #{psptId,jdbcType=VARCHAR} and hand_state = 'C' order by ACTIVETIME1 desc
+  	 from consult_record where PSPTID = #{psptId,jdbcType=VARCHAR} order by ACTIVETIME1 desc
 	</select>
   
 	<select id="queryRecords" parameterType="java.util.Map" resultMap="RECORDResultMap">
@@ -281,7 +285,7 @@
 	<if test="docautograph != null and docautograph != ''">
 	DOCAUTOGRAPH,
 	</if>
-	FINGERPRINT,REMARK,PRINT_FLAG)
+	FINGERPRINT,REMARK,PRINT_FLAG,hand_state)
 		values (#{psptId,jdbcType=VARCHAR},str_to_date(#{activeTime,jdbcType=VARCHAR},'%Y-%m-%d %T'),#{autograph,jdbcType=VARCHAR},
 		<if test="ispass != null and ispass != ''">
 		#{ispass,jdbcType=VARCHAR},
@@ -289,7 +293,7 @@
 		<if test="docautograph != null and docautograph != ''">
 		#{docautograph,jdbcType=VARCHAR},
 		</if>
-		#{fingerprint,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{printFlag,jdbcType=VARCHAR})
+		#{fingerprint,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{printFlag,jdbcType=VARCHAR},#{handState,jdbcType=VARCHAR})
 	</insert>
 	
 	<insert id="saveRecordCount" parameterType="com.consult.bean.ConsultRecordCount">

@@ -49,6 +49,8 @@ public interface CommonMapper {
 	
 	int updateRecordCount(Map param);
 	
+	int updateContract(ConsultContract contract);
+	
 	List<ConsultConfigArea> qryArea(Map param);
 	
 	List<ConsultContract> qryContracts(Map param);
