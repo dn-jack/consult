@@ -1221,11 +1221,22 @@ public class CommonServiceImpl implements CommonService {
 			}
 		}
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
 		if (removeList.size() > 0) {
 			param.removeAll(removeList);
+			
+			for(Map<String, String> map : removeList) {
+				ConsultContract contract = new ConsultContract();
+				contract.setActiveTime(sdf.format(new Date()));
+				contract.setState(0);
+				contract.setPsptId(map.get("psptId"));
+				contract.setContractCode(map.get("no"));
+				mapper.updateContract(contract);
+			}
 		}
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
 		List<ConsultContract> cons = new ArrayList<ConsultContract>();
 		for (Map<String, String> map : param) {
 			ConsultContract contract = new ConsultContract();

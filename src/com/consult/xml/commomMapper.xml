@@ -110,6 +110,10 @@
 		</foreach>
 		 
 	</update>
+	
+	<update id="updateContract" parameterType="com.consult.bean.ConsultContract">
+		update consult_contract set contract_code = #{contractCode} where psptId = #{psptId}
+	</update>
     
 	<select id="qryContracts" parameterType="java.util.Map" resultMap="ContractResultMap"> 
     	select * from consult_contract where psptId in

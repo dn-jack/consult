@@ -55,5 +55,7 @@ public interface CommonMapper {
 	
 	int saveContracts(List<ConsultContract> contracts);
 	
+	int updateContract(ConsultContract contract);
+	
 	int updateConsultRecord(Map param);
 }
