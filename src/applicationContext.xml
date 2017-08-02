@@ -28,6 +28,18 @@
 	
 	<context:annotation-config />
 	
+	<bean class="com.consult.test.My1"/>
+   <bean class="com.consult.test.My2"/>
+   <bean class="com.consult.test.My3"/>
+   <bean class="com.consult.test.My4"/>
+   <bean class="com.consult.test.My5"/>
+   <bean class="com.consult.test.My6"/>
+   
+   <bean id="myStudent" class="com.consult.test.Student">
+   		<property name="username" value="jack"></property>
+   		<property name="password" value="123456"></property>
+   </bean>
+	
 	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass">
@@ -88,11 +100,12 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
-    
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+    <!--
 	<tx:advice id="userTxAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<!--<tx:method name="delete*" propagation="REQUIRED" read-only="false"
-				rollback-for="java.lang.Exception" no-rollback-for="java.lang.RuntimeException" />-->
+			<tx:method name="delete*" propagation="REQUIRED" read-only="false"
+				rollback-for="java.lang.Exception" no-rollback-for="java.lang.RuntimeException" />
 			<tx:method name="save*" propagation="REQUIRED" read-only="false"
 				rollback-for="java.lang.RuntimeException" />
 			<tx:method name="delete*" propagation="REQUIRED" read-only="false"
@@ -103,26 +116,26 @@
 				rollback-for="java.lang.RuntimeException" />
 			<tx:method name="print*" propagation="REQUIRED" read-only="false"
 				rollback-for="java.lang.RuntimeException" />
-			<!-- 事物隔离级别配置，MySQL默认是 repeated-read 所以需要设置隔离级别为read-commit -->
+			 事物隔离级别配置，MySQL默认是 repeated-read 所以需要设置隔离级别为read-commit 
 			<tx:method name="*" propagation="REQUIRED" read-only="false" isolation="READ_COMMITTED"
 				rollback-for="java.lang.RuntimeException" />
-			<!--<tx:method name="update*" propagation="REQUIRED" read-only="false"
+			<tx:method name="update*" propagation="REQUIRED" read-only="false"
 					rollback-for="java.lang.Exception" />
 				<tx:method name="find*" propagation="SUPPORTS" />
 				<tx:method name="get*" propagation="SUPPORTS" />
-				<tx:method name="select*" propagation="SUPPORTS" />-->
+				<tx:method name="select*" propagation="SUPPORTS" />
 		</tx:attributes>
-	</tx:advice>
-	
+	</tx:advice>-->
+	<!--
 	<aop:config>
 		<aop:pointcut id="pc"
-			expression="execution(public * com.consult.service.impl..*.*(..))" /> <!--把事务控制在Service层 -->
+			expression="execution(public * com.consult.service.impl..*.*(..))" /> 把事务控制在Service层 
 		<aop:advisor pointcut-ref="pc" advice-ref="userTxAdvice" />
-	</aop:config>
+	</aop:config>-->
 	
 	<!-- Enable @Transactional support -->
-	<!-- 使用annotation定义事务 
-		<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />-->
+	<!-- 使用annotation定义事务 -->
+		
     
 	<!-- Enable @AspectJ support -->
 	<!-- 开启AOP监听 只对当前配置文件有效 -->

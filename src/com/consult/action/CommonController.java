@@ -20,7 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,7 +45,7 @@ public class CommonController {
 	@RequestMapping(value = "/checkIsNew", method = { RequestMethod.POST,
 			RequestMethod.GET }, produces = "application/json;charset=utf-8")
 	public @ResponseBody String checkIsNew(HttpServletRequest request,
-			HttpServletResponse response, @RequestBody String param)
+			HttpServletResponse response,  @RequestBody String param)
 			throws UnsupportedEncodingException {
 		logger.info("methodName : checkIsNew");
 		try {

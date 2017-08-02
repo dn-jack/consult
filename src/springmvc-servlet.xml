@@ -35,6 +35,8 @@
 	   </mvc:message-converters>
    </mvc:annotation-driven>
    
+   <context:annotation-config ></context:annotation-config>
+   
    <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">

@@ -160,7 +160,7 @@
   
 	<select id="queryConsultRecords" parameterType="java.util.Map" resultMap="RECORDResultMap">
   	select ID,PSPTID,date_format(ACTIVETIME,'%Y-%m-%d') ACTIVETIME,date_format(ACTIVETIME,'%Y-%m-%d %T') ACTIVETIME1,AUTOGRAPH,ISPASS,DOCAUTOGRAPH,FINGERPRINT,PRINT_FLAG,REMARK
-  	 from consult_record where PSPTID = #{psptId,jdbcType=VARCHAR} and hand_state = 'C' order by ACTIVETIME1 desc
+  	 from consult_record where PSPTID = #{psptId,jdbcType=VARCHAR} order by ACTIVETIME1 desc
 	</select>
   
 	<select id="queryRecords" parameterType="java.util.Map" resultMap="RECORDResultMap">

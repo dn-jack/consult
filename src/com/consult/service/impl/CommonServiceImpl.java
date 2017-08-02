@@ -22,6 +22,8 @@ import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import sun.misc.BASE64Encoder;
 
@@ -34,6 +36,7 @@ import com.consult.bean.ConsultRecord;
 import com.consult.bean.ConsultRecordCount;
 import com.consult.dao.CommonMapper;
 import com.consult.service.CommonService;
+import com.consult.service.TransationService;
 import com.consult.util.DocumentHandler;
 import com.consult.util.JsonUtil;
 
@@ -47,6 +50,39 @@ public class CommonServiceImpl implements CommonService {
 
 	@Autowired
 	DocumentHandler docHandler;
+	
+	@Autowired
+	TransationService service;
+	
+	@Transactional
+	public void sfdsaf() {
+		ConsultConfigArea area = new ConsultConfigArea();
+		area.setAreaCode("erer");
+		area.setAreaName("erer");
+		area.setState(0);
+		mapper.saveArea(area);
+//		throw new RuntimeException("回滚！");
+		try {
+			service.test();
+		} catch(Exception e) {
+			logger.info("fdafds");
+		}
+	}
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public void sfaaadsaf() {
+		System.out.print("fjdlsajflkdsglkfdgewopriop");
+		ConsultConfigArea area = new ConsultConfigArea();
+		area.setAreaCode("33");
+		area.setAreaName("44444");
+		area.setState(0);
+		mapper.saveArea(area);
+		throw new RuntimeException("回滚！");
+	}
+	
+	public void queryArea() {
+		List<ConsultConfigArea> cca = mapper.qryArea(new HashMap());
+		System.out.println(cca);
+	}
 
 	public String saveArea(String param) throws Exception {
 		JSONObject paramJo = JSONObject.fromObject(param);
