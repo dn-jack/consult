@@ -39,6 +39,8 @@
    		<property name="username" value="jack"></property>
    		<property name="password" value="123456"></property>
    </bean>
+   
+    <bean class="com.consult.listen.MyApplicationListener"/>
 	
 	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
